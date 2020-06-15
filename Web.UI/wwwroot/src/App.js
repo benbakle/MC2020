@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Controls, Pages } from './components';
 import './app.scss';
 
-const { Loading } = Controls;
+const { Loading, JYBLoading } = Controls;
 //const { Landing } = Pages;
 
 const Landing = lazy(() => import('./components/Pages/Landing'));
@@ -16,6 +16,7 @@ const App = () => {
                     <Suspense fallback={<Loading />}>
                         <Switch>
                             <Route exact path='/loading'><Loading /></Route>
+                            <Route exact path='/jyb-loading'><JYBLoading /></Route>
                             <Route exact path='/'><Landing /></Route>
                         </Switch>
                     </Suspense>

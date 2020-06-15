@@ -5,15 +5,20 @@ import { Controls } from '../..';
 const Landing = () => {
     const history = useHistory();
     const { Button } = Controls;
-    const goTo = () => history.push('/loading');
+    const loader = () => history.push('/loading');
+    const jybLoader = () => history.push('/jyb-loading');
 
     return (
         <div className="landing">
-
             <Button
                 content="View Loader"
                 className="primary"
-                onClick={goTo} />
+                onClick={loader} />
+
+            <Button
+                content="View JYB Loader"
+                className="primary"
+                onClick={jybLoader} />
         </div>
     )
 }
