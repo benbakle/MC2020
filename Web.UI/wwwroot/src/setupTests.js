@@ -5,18 +5,20 @@ const { render, screen, fireEvent } = RTL;
 
 let isLoggedIn = true;
 
-//const useMockOktaAuth = () => {
-    //jest.spyOn(Okta, "useOktaAuth").mockImplementation(() => {
-        //const Okta = {}
-        //const authService = {};
+//Example of useMock();
+let imported = {useAthing:()=>{}} // <== just a fake for example
+const useMock = () => {
+    jest.spyOn(imported, "useAthing").mockImplementation(() => {
+        const _imported = {}
+        const _auth = {};
 
-        //authService.logout = () => isLoggedIn = false;
+        _auth.logout = () => isLoggedIn = false;
 
-        //Okta.authService = authService
+        _imported.auth = _auth
 
-        //return Okta
-    //})
-//}
+        return _imported;
+    })
+}
 
 const bypassComponent = (obj, propertyString) => {
     jest.spyOn(obj, propertyString).mockImplementation(props => props.children);
@@ -73,7 +75,7 @@ export {
     fireEvent,
     bypassComponent,
     mockNewDateAndReturn,
-    //useMockOktaAuth,
+    useMock,
     isLoggedIn,
 }
 
