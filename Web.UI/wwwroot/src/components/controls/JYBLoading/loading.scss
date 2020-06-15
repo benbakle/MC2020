@@ -6,7 +6,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: lighten(#414f52, 50);
+    background-color: darken(#414f52, 50);
     animation: loading 2.5s infinite;
     animation-timing-function: linear;
     opacity: 0.9;
@@ -29,13 +29,13 @@
 
 @keyframes loading {
     0% {
-        background-color: darken(#414f52, 20);
+        background-color: darken(#414f52, 50);
     }
     50% {
         background-color: darken(#414f52, 10);
     }
     100% {
-        background-color: darken(#414f52, 20);
+        background-color: darken(#414f52, 50);
     }
 }
 
