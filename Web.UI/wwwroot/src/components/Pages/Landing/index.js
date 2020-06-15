@@ -1,10 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Controls } from '../..';
+import { Button } from '../../Controls';
 
 const Landing = () => {
     const history = useHistory();
-    const { Button } = Controls;
     const loader = () => history.push('/loading');
     const jybLoader = () => history.push('/jyb-loading');
 
