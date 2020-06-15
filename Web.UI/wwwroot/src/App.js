@@ -1,9 +1,11 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Controls } from './components';
+import { Controls, Pages } from './components';
 import './app.scss';
 
 const { Loading } = Controls;
+//const { Landing } = Pages;
+
 const Landing = lazy(() => import('./components/Pages/Landing'));
 
 const App = () => {

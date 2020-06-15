@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import Button from './';
-import { render, screen, fireEvent } from '../../setupTests';
+import { render, screen, fireEvent } from '../../../setupTests';
 
 describe('The Button control', () => {
     let _button;
