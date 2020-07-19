@@ -9,6 +9,7 @@ namespace MC2020.UI
 
         public void RegisterDependencies(IServiceCollection services)
         {
+
             services.AddScoped(typeof(IDataContext), typeof(ApplicationDataContext));
             //We are logging to Server 2019 Event logging currently (per SMC)
             services.AddLogging(configure => configure.AddEventLog());

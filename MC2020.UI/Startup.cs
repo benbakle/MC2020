@@ -16,7 +16,7 @@ namespace MC2020.UI
             Mvc(services);
             EnitityFramework(services);
             ReactSpa(services);
-            AddAuthentication(services);
+           // AddAuthentication(services);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationDataContext db)
@@ -24,7 +24,7 @@ namespace MC2020.UI
             EntityMigration(db);
             Environment(app, env);
             UseCors(app);
-            UseAuthentication(app);
+         //   UseAuthentication(app);
             UseMVC(app);
             UseReactSpa(app, env);
         }

@@ -7,7 +7,7 @@ namespace MC2020.EntityFramework
 {
     public class ApplicationDataContext : DbContext, IDataContext
     {
-        public DbSet<Budget> Features { get; set; }
+        public DbSet<Budget> Budgets { get; set; }
 
         public ApplicationDataContext(DbContextOptions<ApplicationDataContext> options) : base(options)
         {

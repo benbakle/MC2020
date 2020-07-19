@@ -73,6 +73,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MC2020.API\MC2020.API.csproj" />
     <ProjectReference Include="..\MC2020.Core\MC2020.Core.csproj" />
     <ProjectReference Include="..\MC2020.Entity\MC2020.Entity.csproj" />
     <ProjectReference Include="..\MC2020.Models\MC2020.Models.csproj" />

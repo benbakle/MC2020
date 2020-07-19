@@ -27,15 +27,15 @@ namespace MC2020.UI
             return _configuration.GetValue<bool>("RunEntityMigrationAtStartup");
         }
 
-        string OKTAAuthorizationServer()
-        {
-            return _configuration.GetValue<string>("OKTAAuthorizationServer");
-        }
+        //string OKTAAuthorizationServer()
+        //{
+        //    return _configuration.GetValue<string>("OKTAAuthorizationServer");
+        //}
 
-        string OKTAAudience()
-        {
-            return _configuration.GetValue<string>("OKTAAudience");
-        }
+        //string OKTAAudience()
+        //{
+        //    return _configuration.GetValue<string>("OKTAAudience");
+        //}
 
         private void EnitityFramework(IServiceCollection services)
         {
@@ -60,15 +60,15 @@ namespace MC2020.UI
                 .AddNewtonsoftJson();
         }
 
-        private void AddAuthentication(IServiceCollection services)
-        {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {      
-                options.Authority = OKTAAuthorizationServer();
-                options.Audience = OKTAAudience();
-            });
-        }
+        //private void AddAuthentication(IServiceCollection services)
+        //{
+        //    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        //    .AddJwtBearer(options =>
+        //    {      
+        //        options.Authority = OKTAAuthorizationServer();
+        //        options.Audience = OKTAAudience();
+        //    });
+        //}
 
         private void EntityMigration(ApplicationDataContext db)
         {

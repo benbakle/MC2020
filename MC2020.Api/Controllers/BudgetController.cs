@@ -23,6 +23,5 @@ namespace MC2020.API
         {
             return Ok(_context.Query<Budget>());
         }
-
     }
 }
