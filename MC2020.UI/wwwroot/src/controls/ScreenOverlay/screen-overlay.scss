@@ -1,0 +1,17 @@
+@use 'scss-variables/colors' as *;
+@use 'scss-variables/effects' as *;
+
+.screen-overlay {
+    @include cover-screen;
+    @include faded-out;
+    transition-duration: $standard-transition;
+    background-image: $main-gradient;
+}
+
+.open {
+    .screen-overlay {
+        @include faded-in;
+        opacity: 0.65;
+        cursor: pointer;
+    }
+}

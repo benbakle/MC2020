@@ -1,0 +1,53 @@
+@use 'scss-variables/effects' as *;
+@use 'scss-variables/colors' as *;
+
+.action-model {
+    &.open {
+        .model-content {
+            @include faded-in;
+            top: 50%;
+        }
+    }
+
+    .model-content {
+        @include faded-out;
+        position: fixed;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $dark-blue;
+        width: calc(100% - 3rem);
+        max-width: 31.5rem;
+        padding: 2rem;
+        border-radius: 0.4rem;
+        transition-duration: $standard-transition;
+        z-index: 501;
+    }
+
+    .screen-overlay {
+        transition-duration: inherit;
+    }
+
+    .close-model-trigger {
+        position: absolute;
+        font-size: 2rem;
+        line-height: 1em;
+        padding: 2rem;
+        top: 0;
+        right: 0;
+    }
+
+    .model-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        padding-bottom: 1.6rem;
+        border-bottom: 0.1rem solid $border-blue;
+    }
+
+    .button.model-button {
+        width: 100%;
+        padding: 2rem 0 1.5rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+}
