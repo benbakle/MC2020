@@ -1,4 +1,5 @@
 ﻿using MC2020.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,11 @@ namespace MC2020.EntityFramework
     public class ApplicationDataContext : DbContext, IDataContext
     {
         public DbSet<Budget> Budgets { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            OptimizeProperties(builder);
+        }
 
         public ApplicationDataContext(DbContextOptions<ApplicationDataContext> options) : base(options)
         {
@@ -32,6 +38,16 @@ namespace MC2020.EntityFramework
             ChangeTracker.DetectChanges();
             var result = await base.SaveChangesAsync();
             return result;
+        }
+
+        private static void OptimizeProperties(ModelBuilder builder)
+        {
+            foreach (var property in builder.Model.GetEntityTypes()
+                .SelectMany(t => t.GetProperties())
+                .Where(p => p.ClrType == typeof(decimal) || p.ClrType == typeof(decimal?)))
+            {
+                property.SetColumnType("decimal(10,5)");
+            };
         }
     }
 
