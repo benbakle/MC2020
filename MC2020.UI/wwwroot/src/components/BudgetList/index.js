@@ -7,13 +7,14 @@ const BudgetList = props => {
 
     const formatPercent = value => `${value * 100}%`;
     const formatDollar = value => `$${value.toFixed(2)}`;
-    
+
     const handleChange = e => { setIncome(e.target.value) };
 
     return (
         <div className="budget-list max-width-tablet">
 
-            <input className="input" value={income} onChange={handleChange} />
+            { /*remove and use transactions between dates*/}
+            <input type="number" className="input" value={income} onChange={handleChange} />
 
             {data.map((item, key) =>
                 <div className="budget-item flex space-betweeen align-center" key={key}>
