@@ -8,7 +8,6 @@ import Fetch from './Fetch';
 import Date from './Date';
 import Address from './Address';
 import EditAddress from './Address/EditAddress';
-import FormField from './FormField';
 import FieldButton from './FieldButton';
 
 export {
@@ -22,6 +21,5 @@ export {
     Date,
     Address,
     EditAddress,
-    FormField,
     FieldButton,
 }

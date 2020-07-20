@@ -19,13 +19,13 @@
         @include link-states {
             border: none;
             box-shadow: none;
-            background-color: $light-blue;
-            box-shadow: 0 0.3rem 0.6rem $light-blue;
+            background-color: $blue;
+            box-shadow: 0 0.3rem 0.6rem $blue;
         }
     }
 
     &:focus {
-        outline-color: $light-blue;
+        outline-color: $blue;
         outline-style: solid;
         outline-width: 1px;
     }

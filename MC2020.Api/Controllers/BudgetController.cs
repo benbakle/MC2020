@@ -21,7 +21,7 @@ namespace MC2020.API
         [HttpGet]
         public IActionResult GetFeatures()
         {
-            return Ok(_context.Query<Budget>());
+            return Ok(_context.Query<Budget>().OrderByDescending(b=>b.Percentage));
         }
     }
 }

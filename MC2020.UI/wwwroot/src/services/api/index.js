@@ -3,7 +3,7 @@ import logger from 'services/logger';
 
 const _headers = () => {
     return {
-        'Authorization': 'Bearer ', //+ accessToken(),
+   //     'Authorization': 'Bearer ', //+ accessToken(),
         'Content-Type': 'application/json'
     };
 }

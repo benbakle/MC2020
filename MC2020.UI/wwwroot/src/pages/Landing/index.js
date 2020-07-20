@@ -1,15 +1,18 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { Button, Loading } from 'controls';
+import { Fetch } from 'controls';
+import { BudgetList } from 'components';
+
 
 const Landing = () => {
-    const history = useHistory();
-    const loader = () => history.push('/loading');
-    const jybLoader = () => history.push('/jyb-loading');
+    //const history = useHistory();
+    //const jybLoader = () => history.push('/jyb-loading');
 
     return (
         <div className="landing">
-            <Loading />
+            <Fetch uri="/api/budget">
+                <BudgetList />
+            </Fetch>
+
         </div>
     )
 }

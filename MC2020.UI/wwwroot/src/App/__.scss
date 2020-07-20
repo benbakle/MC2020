@@ -15,15 +15,34 @@
 }
 
 body {
-  min-height: 100vh;
   width: 100%;
   font-family: $font-family;
-  color: $white;
-  font-size: 1.4rem;
-  background-color: $copyright-blue;
+  color: $cream;
+  font-size: 1.8rem;
+  background-color: $darkest-blue; //$main-gradient;
 }
 
 svg {
   height: 1em;
   fill: currentColor;
+}
+
+.input {
+  color: #222;
+}
+
+.flex {
+  display: flex;
+
+  &.space-betweeen {
+    justify-content: space-between;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+}
+
+.max-width-tablet {
+  max-width: 76.8rem;
 }
