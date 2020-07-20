@@ -9,6 +9,7 @@ namespace MC2020.EntityFramework
     public class ApplicationDataContext : DbContext, IDataContext
     {
         public DbSet<Budget> Budgets { get; set; }
+        public DbSet<Transaction> Transactions{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
