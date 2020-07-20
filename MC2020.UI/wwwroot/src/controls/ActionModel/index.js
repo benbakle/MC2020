@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import { ScreenOverlay, Button } from "controls";
-import { Times } from "controls/Icons";
+import { Times } from "icons";
 import "./__.scss";
 
 const ActionModel = props => {

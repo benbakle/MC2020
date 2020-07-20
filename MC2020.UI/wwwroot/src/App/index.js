@@ -7,19 +7,17 @@ const Landing = lazy(() => import('pages/Landing'));
 
 const App = () => {
     return (
-        <div className="app">
-            <main className="smc-main">
-                <Router>
-                    <Suspense fallback={<Loading />}>
-                        <Switch>
-                            <Route exact path='/loading'><Loading /></Route>
-                            <Route exact path='/jyb-loading'><JYBLoading /></Route>
-                            <Route exact path='/'><Landing /></Route>
-                        </Switch>
-                    </Suspense>
-                </Router>
-            </main>
-        </div >
+        <main className="money-clip-app" aria-label="Money Clip App">
+            <Router>
+                <Suspense fallback={<Loading />}>
+                    <Switch>
+                        <Route exact path='/loading'><Loading /></Route>
+                        <Route exact path='/jyb-loading'><JYBLoading /></Route>
+                        <Route exact path='/'><Landing /></Route>
+                    </Switch>
+                </Suspense>
+            </Router>
+        </main>
     );
 }
 

@@ -7,7 +7,6 @@ import ScreenSlide from './ScreenSlide';
 import Fetch from './Fetch';
 import Date from './Date';
 import Address from './Address';
-import EditAddress from './Address/EditAddress';
 import FieldButton from './FieldButton';
 
 export {
@@ -20,6 +19,5 @@ export {
     Fetch,
     Date,
     Address,
-    EditAddress,
     FieldButton,
 }

@@ -65,7 +65,6 @@
     <None Include="wwwroot\public\manifest.json" />
     <None Include="wwwroot\README.md" />
     <None Include="wwwroot\src\App\index.js" />
-    <None Include="wwwroot\src\registerServiceWorker.js" />
   </ItemGroup>
 
   <ItemGroup>

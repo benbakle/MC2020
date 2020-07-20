@@ -16,7 +16,7 @@ describe("The api service", () => {
         expect(headers)
             .toEqual({
                 'Content-Type': 'application/json',
-                "Authorization": `Bearer ${testToken}`
+               // "Authorization": `Bearer ${testToken}`
             });
     });
 

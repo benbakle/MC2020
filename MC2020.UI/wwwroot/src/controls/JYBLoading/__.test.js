@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import Loading from './';
-import { render, screen } from '../../../setupTests';
+import { render, screen } from 'setupTests';
 
 describe('The Loading component', () => {
     it('shows the loading message as an alert', () => {
@@ -8,7 +8,7 @@ describe('The Loading component', () => {
     });
 
     it('marks it as loading', () => {
-        expect(loading()).toHaveClass("loading");
+        expect(loading()).toHaveClass("loading-background");
     });
 
     it('asserts the message', () => {

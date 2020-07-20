@@ -1,7 +1,6 @@
 ﻿import React from "react";
-import { render, screen } from 'setupTests';
+import { render, screen,fireEvent } from 'setupTests';
 import ActionModel from './';
-import { fireEvent } from "../../setupTests";
 
 describe("The Action Model component", () => {
 

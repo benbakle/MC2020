@@ -1,6 +1,6 @@
-﻿import React from './node_modules/react';
-import { FontAwesomeIcon } from './node_modules/@fortawesome/react-fontawesome'
-import { faSignOutAlt, faUser, faSync, faLanguage, faArrowLeft, faEdit, faEllipsisV, faCheck, faTimes, faDownload } from './node_modules/@fortawesome/free-solid-svg-icons'
+﻿import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt, faUser, faSync, faLanguage, faArrowLeft, faEdit, faEllipsisV, faCheck, faTimes, faDownload } from '@fortawesome/free-solid-svg-icons'
 import './icons.scss';
 
 const Logout = () => <FontAwesomeIcon className="logout-icon" icon={faSignOutAlt} />;
