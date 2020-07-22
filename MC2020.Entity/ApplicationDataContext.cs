@@ -29,7 +29,10 @@ namespace MC2020.EntityFramework
         {
             return base.Add(item).Entity;
         }
-
+        T IDataContext.Update<T>(T item)
+        {
+            return base.Update(item).Entity;
+        }
         T IDataContext.Remove<T>(T item)
         {
             return base.Remove(item).Entity;
@@ -50,6 +53,7 @@ namespace MC2020.EntityFramework
                 property.SetColumnType("decimal(10,5)");
             };
         }
+
     }
 
 }

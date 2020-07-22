@@ -18,7 +18,7 @@ namespace MC2020.Models
         public decimal? Amount { get; set; } = 0;
         public bool Cleared { get; set; } = false;
         public Budget Budget { get; set; }
-        public TransactionType Type { get; set; } = (TransactionType)1;
+        public TransactionType Type { get; set; }
 
 
     }
