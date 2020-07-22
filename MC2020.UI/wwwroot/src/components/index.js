@@ -1,5 +1,7 @@
-import BudgetList from './BudgetList'
+import Budgets from './Budgets'
+import Transactions from './Transactions'
 
 export {
-    BudgetList,
+    Budgets,
+    Transactions,
 }

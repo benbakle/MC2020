@@ -1,0 +1,9 @@
+.transactions {
+    padding: 1rem;
+    margin: 5rem auto;
+
+    //& > span:nth-child(1) {
+    & > span {
+        width: 15%;
+    }
+}
