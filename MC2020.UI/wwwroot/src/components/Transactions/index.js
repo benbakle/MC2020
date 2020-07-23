@@ -1,23 +1,33 @@
 import React from 'react';
-import './__.scss';
 import { formatDollar, formatPercent } from 'libraries/numbers';
 import { Date } from 'controls';
+import { useTransactions } from 'services/transaction';
+import './__.scss';
 
 const Transactions = props => {
-    const { data } = props;
+    const { transactions } = useTransactions();
+
     return (
         <>
-            {data?.map((item, key) =>
-                <div className="transactions flex align-center space-between max-width-tablet" key={key}>
-                    <span><Date date={item.date} readOnly /></span>
-                    <span>{item.description}</span>
-                    <span>{item.reference}</span>
-                    <span>{item.cleared ? "cleared" : "pending..."}</span>
-                    <span>{item.budget.title} ({formatPercent(item.budget.percentage)})</span>
-                    <span>{item.type}</span>
-                    <span>{formatDollar(item.amount)} ({formatPercent()})</span>
-                </div>
-            )}
+            {
+                transactions?.map((item, key) =>
+                    <div className="transactions flex align-center space-between max-width-tablet" key={key}>
+                        <span><Date date={item.date} readOnly /></span>
+                        <span>{item.description}</span>
+                        <span>{item.reference}</span>
+                        <span>{item.cleared ? "cleared" : "pending..."}</span>
+                        <span>
+                            {
+                                item.budget
+                                    ? `${item.budget.title} (${formatPercent(item.budget.percentage)})`
+                                    : "income"
+                            }
+                        </span>
+
+                        <span>{formatDollar(item.amount)}</span>
+                    </div>
+                )
+            }
         </>
     )
 }

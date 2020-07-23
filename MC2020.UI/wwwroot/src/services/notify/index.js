@@ -12,9 +12,10 @@ const useNotify = () => {
 const NotifyContextProvider = props => {
     const [notifications, setNotifications] = useState([]);
 
-    const notify = (note) => {
-        let _notifications = [{ message: note }, ...notifications]
+    const notify = note => {
+        let _notifications = [...notifications, { note }]
         setNotifications(_notifications);
+
         console.log(`Notified: ${note}`)
     };
 
@@ -31,7 +32,7 @@ const Notify = props => {
         <div className="notify">
             {
                 notifications?.map((item, key) =>
-                    <Note message={item.message} key={key} speed={300} time={50000} />
+                    <Note note={item} key={key} speed={300} time={50000} />
                 )
             }
         </div>
@@ -39,8 +40,7 @@ const Notify = props => {
 }
 
 const Note = props => {
-    const { speed, time } = props;
-
+    const { speed, time, note } = props;
 
     const showCountdown = true;
 
@@ -59,7 +59,9 @@ const Note = props => {
 
         setTimeout(() => { setAnimated(true) }, time + speed);
 
-        setTimeout(() => { setVisible(false) }, time + speed + 100);
+        setTimeout(() => {
+            setVisible(false);
+        }, time + speed + 100);
     });
 
     const close = () => {
@@ -71,7 +73,7 @@ const Note = props => {
     return (
         visible &&
         <div className={`note flex space-between align-center${animate ? " animate" : ""}${animating ? " animating" : ""}${animated ? " animated" : ""} ${speed}`} onClick={close}>
-            <span className="message max-width-tablet">{props.message}
+            <span className="message max-width-tablet">{note.note}
                 {showCountdown && <span className="countdown flex align-center justify-center">{count}</span>}
                 <span className="close-icon flex align-center justify-center"><Times /></span>
             </span>

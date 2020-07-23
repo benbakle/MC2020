@@ -8,25 +8,26 @@ const Fetch = props => {
     const [data, setData] = useState();
     const [fetching, setFetching] = useState(true);
 
-    const fetchData = async () => {
-        try {
-            const _response = await fetch(uri);
-            handleResponse(_response);
-
-        } catch (error) {
-            setFetching(false)
-            logger.error(error);
-        }
-    }
-
-    const handleResponse = data => {
-        setFetching(false);
-        setData(data);
-    }
-
     useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const _response = await fetch(uri);
+                handleResponse(_response);
+                console.table(_response)
+
+            } catch (error) {
+                setFetching(false)
+                logger.error(error);
+            }
+        }
+
+        const handleResponse = data => {
+            setFetching(false);
+            setData(data);
+        }
+
         fetching && fetchData();
-    })
+    }, [data,fetching, uri]); 
 
     return (
         <>

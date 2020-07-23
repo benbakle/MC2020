@@ -1,6 +1,7 @@
 import React from 'react';
 import { Fetch } from 'controls';
-import { Budgets,Transactions } from 'components';
+import { Budgets, Transactions } from 'components';
+import { TransactionsContextProvider } from 'services/transaction';
 
 const Landing = () => {
     //const history = useHistory();
@@ -8,13 +9,15 @@ const Landing = () => {
 
     return (
         <div className="landing">
-            <Fetch uri="/api/budget">
-                <Budgets />
-            </Fetch>
+            <TransactionsContextProvider>
 
-            <Fetch uri="api/transaction">
+                <Fetch uri="/api/budget">
+                    <Budgets />
+                </Fetch>
+
                 <Transactions />
-            </Fetch>
+                
+            </TransactionsContextProvider>
         </div>
     )
 }
