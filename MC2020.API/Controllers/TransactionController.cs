@@ -3,6 +3,7 @@ using MC2020.EntityFramework;
 using MC2020.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace MC2020.API
 {
@@ -25,6 +26,37 @@ namespace MC2020.API
                 _context.Query<Transaction>()
                 .Include(t => t.Budget)
                 .OrderByDescending(t => t.Date));
+        }
+
+        [HttpGet("budget/{budgetId}")]
+        public IActionResult GetTransactionsByBudget(Guid budgetId)
+        {
+            return Ok(
+                _context.Query<Transaction>()
+                .Where(t => t.Budget.Id == budgetId)
+                .Include(t => t.Budget)
+                .OrderByDescending(t => t.Date));
+        }
+
+        [HttpGet("budget/{budgetId}/total")]
+        public IActionResult GetTransactionsTotalsByBudget(Guid budgetId)
+        {
+            var totals = _context.Query<Transaction>()
+                .Where(t => t.Budget.Id == budgetId)
+                .Select(t => t.Amount);
+
+            return Ok(totals.Sum());
+        }
+
+
+        [HttpGet("income")]
+        public IActionResult GetIncome()
+        {
+            var totals = _context.Query<Transaction>()
+                .Where(t => t.Budget == null)
+                .Select(t => t.Amount);
+
+            return Ok(totals.Sum());
         }
 
         [HttpPost]
