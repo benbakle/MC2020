@@ -43,19 +43,23 @@ const Transactions = props => {
             {
                 filteredTransactions?.map((item, key) =>
                     <div className="transactions flex align-center space-between max-width-tablet" key={key}>
-                        <span><Date date={item.date} readOnly /></span>
-                        <span>{item.description}</span>
-                        <span>{item.reference}</span>
-                        <span>{item.cleared ? "cleared" : "pending..."}</span>
-                        <span>
+                        <Date date={item.date} readOnly />
+                        <div>{item.description}</div>
+
+                        {
+                            //<div>{item.reference}</div>
+                            //<div>{item.cleared ? "cleared" : "pending..."}</div>
+                        }
+
+                        <div>
                             {
                                 item.budget
                                     ? `${item.budget.title} (${formatPercent(item.budget.percentage)})`
-                                    : "income"
+                                    : "Income"
                             }
-                        </span>
+                        </div>
 
-                        <span>{formatDollar(item.amount)}</span>
+                        <div>{formatDollar(item.amount)}</div>
                     </div>
                 )}
         </>

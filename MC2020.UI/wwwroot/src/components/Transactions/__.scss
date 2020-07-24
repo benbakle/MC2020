@@ -1,9 +1,11 @@
 .transactions {
     padding: 1rem;
-    margin:0 auto;
+    margin: 0 auto;
+    & > div {
+        width: 100%;
 
-    //& > span:nth-child(1) {
-    & > span {
-        width: 15%;
+        &:last-child{
+            text-align: right;
+        }
     }
 }
