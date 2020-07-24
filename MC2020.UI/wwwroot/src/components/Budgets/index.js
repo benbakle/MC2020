@@ -1,14 +1,10 @@
 import React from 'react';
 import { formatPercent } from 'libraries/numbers';
-import { useNotify } from 'services/notify';
 import { useBudget } from 'services/budget';
 import './__.scss';
 
 const Budgets = props => {
     const { budget } = useBudget();
-    const { notify } = useNotify();
-    
-    const handleClick = () => { notify(`Food : ${budget && budget[0].percentage}`); }
 
     return (
         <div className="budget-list max-width-tablet">
@@ -19,8 +15,6 @@ const Budgets = props => {
                         <span>{formatPercent(item.percentage)}</span>
                     </div>
                 )}
-
-            <button onClick={handleClick}>Notify</button>
         </div>
     )
 }
