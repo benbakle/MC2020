@@ -12,8 +12,8 @@ const useNotify = () => {
 const NotifyContextProvider = props => {
     const [notifications, setNotifications] = useState([]);
 
-    const notify = note => {
-        let _notifications = [...notifications, { note }]
+    const notify = (note, type) => {
+        let _notifications = [...notifications, { note, type }]
         setNotifications(_notifications);
 
         console.log(`Notified: ${note}`)
@@ -25,6 +25,7 @@ const NotifyContextProvider = props => {
         </NotifyContext.Provider>
     )
 }
+
 
 const Notify = props => {
     const { notifications } = useNotify();

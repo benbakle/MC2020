@@ -9,7 +9,7 @@ const Landing = lazy(() => import('pages/Landing'));
 const App = () => {
     return (
         <NotifyContextProvider>
-            <Notify />
+            <Notify speed={300} time={5000} finalCount={"bye"} showCountdown />
             <main className="money-clip-app" aria-label="Money Clip App">
                 <Router>
                     <Suspense fallback={<Loading />}>
