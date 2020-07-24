@@ -5,21 +5,23 @@ const Select = props => {
     const { className, value, onChange, ariaLabel, disabled, data } = props;
 
     return (
-        <select
-            type='input'
-            className={className}
-            value={value}
-            onChange={onChange}
-            aria-label={ariaLabel}
-            disabled={disabled} >
+        <div className="select  max-width-tablet">
+            <select
+                type='input'
+                className={className}
+                value={value}
+                onChange={onChange}
+                aria-label={ariaLabel}
+                disabled={disabled} >
 
-            {
-                data?.map((item, key) =>
-                    <option key={key} value={item.value}>{item.description}</option>
-                )
-            }
+                {
+                    data?.map((item, key) =>
+                        <option key={key} value={item.value}>{item.description}</option>
+                    )
+                }
 
-        </select>
+            </select>
+        </div>
     )
 }
 

@@ -1,0 +1,11 @@
+@import "scss-variables/colors.scss";
+@import "scss-variables/font.scss";
+
+.select,
+.select > option {
+    width:100%;
+    background-color: $darkest-blue;
+    color: white;
+    font-size: 1.8rem;
+    padding:1rem;
+}
