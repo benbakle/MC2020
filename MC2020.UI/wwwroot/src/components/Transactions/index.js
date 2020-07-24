@@ -1,39 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { formatDollar, formatPercent } from 'libraries/numbers';
-import { Date } from 'controls';
 import { Select } from 'controls/Fields';
+import { Date } from 'controls';
 import { useTransactions } from 'services/transaction';
+import { useBudget } from 'services/budget';
 import './__.scss';
 
 const Transactions = props => {
-    const { transactions } = useTransactions([]);
-    const [budget, setBudget] = useState();
+    const { transactions } = useTransactions();
+    const { budget } = useBudget();
 
-    const filteredTransactions = () => {
-        if (!budget)
-            return transactions
+    const [typeId, setTypeId] = useState();
+    const [filteredTransactions, setFilteredTransactions] = useState();
 
-        if (budget === "income")
-            return transactions?.filter(t => t.budget === null);
+    useEffect(() => {
+        const _filterTransactions = () => {
+            if (!typeId)
+                return transactions;
 
-        return transactions?.filter(t => t.budget?.title === budget)
-    }
+            if (typeId === "income")
+                return transactions?.filter(t => t.budget === null);
+
+            return transactions?.filter(t => t.budget?.id === typeId)
+
+        }
+
+        setFilteredTransactions(_filterTransactions())
+
+    }, [typeId, transactions])
 
     const handleSelectBudget = e => {
-        setBudget(e.target.value)
+        setTypeId(e.target.value)
     }
 
     return (
         <>
-            <Select className="select" onChange={handleSelectBudget} value={budget}
-                data={[
-                    { value: "", description: "All Transactions" },
-                    { value: "income", description: "Income" },
-                    { value: "Food", description: "Food" }
-                ]} />
-          
+            <Select className="select" data={budget} valueProperty="id" descriptionProperty="title" onChange={handleSelectBudget} value={typeId}>
+                <option value="">All Transactions</option>
+                <option value="income">Income</option>
+            </Select>
+
             {
-                filteredTransactions()?.map((item, key) =>
+                filteredTransactions?.map((item, key) =>
                     <div className="transactions flex align-center space-between max-width-tablet" key={key}>
                         <span><Date date={item.date} readOnly /></span>
                         <span>{item.description}</span>
@@ -49,8 +57,7 @@ const Transactions = props => {
 
                         <span>{formatDollar(item.amount)}</span>
                     </div>
-                )
-            }
+                )}
         </>
     )
 }

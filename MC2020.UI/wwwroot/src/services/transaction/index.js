@@ -1,4 +1,3 @@
-
 import React, { useState, useContext, useEffect } from "react";
 import { fetch } from 'services/api';
 
@@ -9,12 +8,9 @@ const useTransactions = () => {
     return _context;
 }
 
-
 const TransactionsContextProvider = props => {
     const [transactions, setTransactions] = useState();
     const [income, setIncome] = useState();
-    const [fetching, setFetching] = useState();
-
 
     const _fetchTransactions = async () => {
         const _transactions = await fetch('api/transaction')
@@ -26,8 +22,7 @@ const TransactionsContextProvider = props => {
 
     useEffect(() => {
         _fetchTransactions();
-    }, [fetching])
-
+    }, [])
 
     return (
         <TransactionsContext.Provider value={{ transactions, income }}>
@@ -35,6 +30,5 @@ const TransactionsContextProvider = props => {
         </TransactionsContext.Provider>
     )
 }
-
 
 export { TransactionsContextProvider, useTransactions };

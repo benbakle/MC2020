@@ -11,16 +11,15 @@ const useBudget = () => {
 
 const BudgetContextProvider = props => {
     const [budget, setBudget] = useState();
-    const [fetching, setFetching] = useState();
 
     const _fetchBudget = async () => {
-        const _budget = await fetch('api/transaction')
+        const _budget = await fetch('api/budget')
         setBudget(_budget);
     }
 
     useEffect(() => {
         _fetchBudget();
-    }, [fetching])
+    }, [])
 
     return (
         <BudgetContext.Provider value={{ budget }}>
