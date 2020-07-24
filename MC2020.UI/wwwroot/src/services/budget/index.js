@@ -1,3 +1,4 @@
+
 import React, { useState, useContext, useEffect } from "react";
 import { fetch } from 'services/api';
 
@@ -8,23 +9,18 @@ const useBudget = () => {
     return _context;
 }
 
-
 const BudgetContextProvider = props => {
-    const [budget, setBudget] = useState([]);
+    const [budget, setBudget] = useState();
+    const [fetching, setFetching] = useState();
+
+    const _fetchBudget = async () => {
+        const _budget = await fetch('api/transaction')
+        setBudget(_budget);
+    }
 
     useEffect(() => {
-        const _fetchBudget = async () => {
-            try {
-                const _budget = await fetch('api/budget')
-                setBudget(_budget);
-                console.table(_budget)
-            }
-            catch (e) { console.error(`mc2020 error:${e}`) }
-        }
-
         _fetchBudget();
-        
-    })
+    }, [fetching])
 
     return (
         <BudgetContext.Provider value={{ budget }}>

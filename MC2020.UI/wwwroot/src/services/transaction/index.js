@@ -11,39 +11,26 @@ const useTransactions = () => {
 
 
 const TransactionsContextProvider = props => {
-    const [transactions, setTransactions] = useState([]);
-    const [income, setIncome] = useState([]);
+    const [transactions, setTransactions] = useState();
+    const [income, setIncome] = useState();
+    const [fetching, setFetching] = useState();
+
+
+    const _fetchTransactions = async () => {
+        const _transactions = await fetch('api/transaction')
+        setTransactions(_transactions);
+
+        const _income = await fetch(`api/transaction/income`)
+        setIncome(_income)
+    }
 
     useEffect(() => {
-
-        const _fetchTransactions = async () => {
-            try {
-                const _transactions = await fetch('api/transaction')
-                setTransactions(_transactions);
-            }
-            catch (e) { console.error(`mc2020 error:${e}`) }
-        }
-
-        const _fetchIncome = async () => {
-            try {
-                const _income = await fetch(`api/transaction/income`)
-                setIncome(_income)
-            }
-            catch (e) { console.error(`mc2020 error:${e}`) }
-
-        }
-
-
         _fetchTransactions();
-        _fetchIncome();
-    }, [transactions, income])
+    }, [fetching])
 
-    const totalByBudget = async budgetId => {
-        try { return await fetch(`api/transaction/budget/${budgetId}/total`) }
-        catch (e) { console.error(`mc2020 error:${e}`) }
-    }
+
     return (
-        <TransactionsContext.Provider value={{ transactions, income, totalByBudget }}>
+        <TransactionsContext.Provider value={{ transactions, income }}>
             {props.children}
         </TransactionsContext.Provider>
     )

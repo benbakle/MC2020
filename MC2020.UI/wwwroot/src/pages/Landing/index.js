@@ -9,15 +9,15 @@ const Landing = () => {
 
     return (
         <div className="landing">
-            <TransactionsContextProvider>
 
                 <Fetch uri="/api/budget">
                     <Budgets />
                 </Fetch>
 
+            <TransactionsContextProvider>
                 <Transactions />
-                
             </TransactionsContextProvider>
+                
         </div>
     )
 }
