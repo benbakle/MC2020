@@ -27,8 +27,11 @@ svg {
   fill: currentColor;
 }
 
-.input {
-  color: #222;
+input,
+select,
+option {
+  background-color: $blue;
+  color: white;
 }
 
 .flex {
