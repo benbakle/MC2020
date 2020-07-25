@@ -10,9 +10,9 @@ const Budgets = props => {
         <div className="budget-list">
             {
                 budget?.map((item, key) =>
-                    <div className="budget-item flex space-betweeen align-center" key={key}>
-                        <span>{item.title}</span>
-                        <span>{formatPercent(item.percentage)}</span>
+                    <div className="budget-item table-row space-betweeen" key={key}>
+                        <div>{item.title}</div>
+                        <div>{formatPercent(item.percentage)}</div>
                     </div>
                 )}
         </div>

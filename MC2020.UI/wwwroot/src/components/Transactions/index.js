@@ -39,7 +39,7 @@ const Transactions = props => {
             <BudgetSelector onChange={handleSelectBudget} name="budget" value={typeId} />
             {
                 filteredTransactions?.map((item, key) =>
-                    <div className="transaction flex align-center space-between" key={key}>
+                    <div className="transaction table-row space-between" key={key}>
                         <Date date={item.date} readOnly />
                         <div>{item.description}</div>
 

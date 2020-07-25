@@ -50,6 +50,20 @@ option {
   }
 }
 
+.table-row {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+
+  & > div {
+    width: 100%;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+}
+
 .max-width-tablet {
   max-width: 76.8rem;
 }
