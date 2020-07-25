@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatPercent } from 'libraries/numbers';
 import { useBudget } from 'services/budget';
-import './__.scss';
+import BudgetSelector from './BudgetSelector';
 
 const Budgets = props => {
     const { budget } = useBudget();
@@ -19,3 +19,7 @@ const Budgets = props => {
     )
 }
 export default Budgets
+
+export {
+    BudgetSelector,
+}

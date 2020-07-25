@@ -4,8 +4,8 @@ import moment from 'moment';
 const Date = props => {
     const { date, label, onChange, readOnly } = props;
 
-    if (!date)
-        return <></>
+   // if (!date)
+   //     return <></>
 
     const _date = moment(date);
     const dateForInput = _date.format("YYYY-MM-DD");

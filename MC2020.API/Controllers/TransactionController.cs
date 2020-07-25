@@ -62,10 +62,18 @@ namespace MC2020.API
         [HttpPost]
         public IActionResult CreateTransaction([FromBody] Transaction transaction)
         {
-            var _budget = _context.Query<Budget>().Where(b => b.Id == transaction.Budget.Id).FirstOrDefault();
+            Budget _budget = null;
+    
+            if (transaction.Budget != null)
+            {
+                _budget = _context.Query<Budget>().Where(b => b.Id == transaction.Budget.Id).FirstOrDefault();
+
+            }
+
             transaction.Budget = _budget;
+
             _context.Add<Transaction>(transaction);
-            _context.Save().GetAwaiter().GetResult();   
+            _context.Save().GetAwaiter().GetResult();
             return NoContent();
         }
     }

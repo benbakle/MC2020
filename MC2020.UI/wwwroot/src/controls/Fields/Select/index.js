@@ -2,7 +2,7 @@ import React from 'react';
 import './__.scss';
 
 const Select = props => {
-    const { className, value, onChange, ariaLabel, disabled, data, valueProperty, descriptionProperty } = props;
+    const { name, className, value, onChange, ariaLabel, disabled, data, valueProperty, descriptionProperty } = props;
 
     const mappedData = () => {
         let _data = [];
@@ -17,13 +17,14 @@ const Select = props => {
         <div className="select  max-width-tablet">
             <select
                 type='input'
-                className={className}
+                name={name}
+                className={`select ${className}`}
                 value={value}
                 onChange={onChange}
                 aria-label={ariaLabel}
                 disabled={disabled} >
 
-                {props.children}        
+                {props.children}
                 {
                     data && mappedData()?.map((item, key) =>
                         <option key={key} value={item.value}>{item.description}</option>
