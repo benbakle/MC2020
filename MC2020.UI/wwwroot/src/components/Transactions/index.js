@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { formatDollar, formatPercent } from 'libraries/numbers';
 import TransactionForm from './TransactionForm';
-import {Date } from 'controls/Fields';
+import { Date } from 'controls/Fields';
 import { useTransactions } from 'services/transaction';
 import { useBudget } from 'services/budget';
 import { BudgetSelector } from 'components/Budgets';
@@ -34,16 +34,12 @@ const Transactions = props => {
     }
 
     return (
-        <>
-            <p><br /></p>
+        <div className="transactions">
             <TransactionForm />
-            <p><br /></p>
             <BudgetSelector onChange={handleSelectBudget} name="budget" value={typeId} />
-            <p><br /></p>
-
             {
                 filteredTransactions?.map((item, key) =>
-                    <div className="transactions flex align-center space-between" key={key}>
+                    <div className="transaction flex align-center space-between" key={key}>
                         <Date date={item.date} readOnly />
                         <div>{item.description}</div>
 
@@ -63,7 +59,7 @@ const Transactions = props => {
                         <div>{formatDollar(item.amount)}</div>
                     </div>
                 )}
-        </>
+        </div>
     )
 }
 

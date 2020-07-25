@@ -1,10 +1,12 @@
 .transactions {
-    padding: 1rem;
-    & > div {
-        width: 100%;
+    .transaction {
+        padding: 1rem;
+        & > div {
+            width: 100%;
 
-        &:last-child{
-            text-align: right;
+            &:last-child {
+                text-align: right;
+            }
         }
     }
 }
