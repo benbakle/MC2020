@@ -5,7 +5,6 @@ import JYBLoading from './JYBLoading';
 import ScreenOverlay from './ScreenOverlay';
 import ScreenSlide from './ScreenSlide';
 import Fetch from './Fetch';
-import Date from './Date';
 import Address from './Address';
 import FieldButton from './FieldButton';
 
@@ -17,7 +16,6 @@ export {
     ScreenOverlay,
     ScreenSlide,
     Fetch,
-    Date,
     Address,
     FieldButton,
 }

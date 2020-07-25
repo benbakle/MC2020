@@ -1,0 +1,32 @@
+@import "scss-variables/colors.scss";
+@import "scss-variables/font.scss";
+
+.select-wrapper,
+.input-wrapper,
+.date-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    select,
+    option,
+    input {
+        width: 100%;
+        background-color: transparent;
+        color: inherit;
+        padding: 1rem;
+        border: 0.1rem solid #aaa;
+        font-size: 1em;
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        opacity: .5;
+    }
+
+//   input.hasDatepicker + img.ui-datepicker-trigger {
+        //display: none;
+    //}
+}

@@ -4,14 +4,14 @@ import moment from 'moment';
 const Date = props => {
     const { date, label, onChange, readOnly } = props;
 
-   // if (!date)
-   //     return <></>
+    // if (!date)
+    //     return <></>
 
     const _date = moment(date);
-    const dateForInput = _date.format("YYYY-MM-DD");
+    const dateForInput = () => _date?.format("YYYY-MM-DD");
 
     return (
-        <div className={`date${readOnly ? " read-only" : ""}`}>
+        <div className={`date-wrapper${readOnly ? " read-only" : ""}`}>
             {
                 label &&
                 <label>{label}</label>
@@ -19,7 +19,7 @@ const Date = props => {
 
             {
                 !readOnly &&
-                <input type="date" value={dateForInput} onChange={onChange}/>
+                <input type="date" value={dateForInput()} onChange={onChange} />
             }
 
             {

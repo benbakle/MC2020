@@ -1,5 +1,5 @@
 import React from 'react';
-import './__.scss';
+import 'controls/Fields/__.scss';
 
 const Select = props => {
     const { name, className, value, onChange, ariaLabel, disabled, data, valueProperty, descriptionProperty } = props;
@@ -14,7 +14,7 @@ const Select = props => {
     }
 
     return (
-        <div className="select  max-width-tablet">
+        <div className="select-wrapper">
             <select
                 type='input'
                 name={name}

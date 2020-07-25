@@ -7,7 +7,7 @@ const Budgets = props => {
     const { budget } = useBudget();
 
     return (
-        <div className="budget-list max-width-tablet">
+        <div className="budget-list">
             {
                 budget?.map((item, key) =>
                     <div className="budget-item flex space-betweeen align-center" key={key}>
