@@ -1,5 +1,5 @@
 import React from 'react';
-import { Budgets, Transactions } from 'components';
+import { Budgets, Transactions, TransactionForm } from 'components';
 import { TransactionsContextProvider } from 'services/transaction';
 import { BudgetContextProvider } from 'services/budget';
 
@@ -11,7 +11,11 @@ const Landing = () => {
         <div className="landing">
             <TransactionsContextProvider>
                 <BudgetContextProvider>
+
                     <Budgets />
+
+                    <TransactionForm />
+
                     <Transactions />
                 </BudgetContextProvider>
             </TransactionsContextProvider>

@@ -42,9 +42,10 @@ const TransactionForm = props => {
     }
 
     return (
-        <div className="transaction-form">
+        <div className="transaction-form card">
+            <h1>New Transaction</h1>
 
-            <Date onChange={e => { setDate(e.target.value) }} date={date} />
+            <Date onC   ange={e => { setDate(e.target.value) }} date={date} />
             <Input onChange={e => { setDescription(e.target.value) }} value={description} placeholder="Description" />
             <BudgetSelector onChange={e => { setBudgetId(e.target.value) }} value={budgetId} />
             <Input onChange={e => { setReference(e.target.value) }} value={reference} placeholder="Reference #" />
@@ -59,5 +60,4 @@ const TransactionForm = props => {
         </div>
     )
 }
-//<Input onChange={e => { setCleared(false) }} value={cleared} placeholder="Cleared" />
 export default TransactionForm

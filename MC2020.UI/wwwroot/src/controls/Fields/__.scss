@@ -20,13 +20,15 @@
             outline: 0;
         }
     }
-
+    option {
+        background-color: $dark-blue;
+    }
     ::-webkit-calendar-picker-indicator {
         filter: invert(1);
-        opacity: .5;
+        opacity: 0.5;
     }
 
-//   input.hasDatepicker + img.ui-datepicker-trigger {
-        //display: none;
+    //   input.hasDatepicker + img.ui-datepicker-trigger {
+    //display: none;
     //}
 }

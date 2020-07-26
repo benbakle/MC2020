@@ -4,6 +4,10 @@ using MC2020.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
+using Microsoft.AspNetCore.Authentication;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Internal;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace MC2020.API
 {
@@ -48,9 +52,18 @@ namespace MC2020.API
             return Ok(totals.Sum());
         }
 
-
         [HttpGet("income")]
-        public IActionResult GetIncome()
+        public IActionResult GetIncomeTransactions()
+        {
+            return Ok(
+                _context.Query<Transaction>()
+                .Where(t => t.Budget == null)
+                .Include(t => t.Budget)
+                .OrderByDescending(t => t.Date));
+        }
+
+        [HttpGet("income/total")]
+        public IActionResult GetIncomeTotal()
         {
             var totals = _context.Query<Transaction>()
                 .Where(t => t.Budget == null)
@@ -59,11 +72,45 @@ namespace MC2020.API
             return Ok(totals.Sum());
         }
 
+
+        //[HttpGet("budget/totals")]
+        //public IActionResult GetBudgetTotals()
+        //{
+        //    var budgetIds = _context.Query<Budget>().Select(b => b.Id);
+
+        //    var budgetTotals = new List<BudgetTotalsMessage>();
+
+        //    foreach (Guid id in budgetIds)
+        //    {
+        //        var _total = _context.Query<Transaction>()
+        //           .Where(t => t.Budget.Id == id)
+        //           .Select(t => t.Amount).Sum();
+
+        //        var message = new BudgetTotalsMessage { BudgetId = id, Total = _total };
+        //        budgetTotals.Add(message);
+        //    }
+
+        //    return Ok(budgetTotals);
+        //    //foreach (var id in budgetIds)
+        //    //{
+        //    //    var budgetTotal = _context.Query<Transaction>().Where(t => t.Budget.Id == id).Select(t => t.Amount).Sum();
+        //    //    var message = new BudgetTotalsMessage()
+        //    //    {
+        //    //        BudgetId = id,
+        //    //        Total = budgetTotal,
+        //    //    };
+
+        //    //    budgetTotals.Add(message);
+        //    //}
+
+        //    //return Ok(budgetTotals);
+        //}
+
         [HttpPost]
         public IActionResult CreateTransaction([FromBody] Transaction transaction)
         {
             Budget _budget = null;
-    
+
             if (transaction.Budget != null)
             {
                 _budget = _context.Query<Budget>().Where(b => b.Id == transaction.Budget.Id).FirstOrDefault();
@@ -76,5 +123,12 @@ namespace MC2020.API
             _context.Save().GetAwaiter().GetResult();
             return NoContent();
         }
+    }
+
+    public class BudgetTotalsMessage
+    {
+        public Guid BudgetId { get; set; }
+        public decimal? Total { get; set; }
+
     }
 }

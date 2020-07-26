@@ -22,6 +22,10 @@ body {
   background-color: $darkest-blue; //$main-gradient;
 }
 
+.money-clip-app {
+  padding: 1.5rem;
+}
+
 svg {
   height: 1em;
   fill: currentColor;
@@ -53,17 +57,36 @@ option {
 .table-row {
   display: flex;
   align-items: center;
-  padding: 1rem 0;
+  padding: 0.7rem 0;
+  background-color: $blue;
 
   & > div {
     width: 100%;
+    padding: 0 0.7rem;
 
     &:last-child {
       text-align: right;
     }
   }
+
+  &:nth-child(2n) {
+    background-color: $dark-blue;
+  }
 }
 
 .max-width-tablet {
   max-width: 76.8rem;
+}
+
+.card {
+  background-color: $dark-blue;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.9);
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 4rem;
 }
