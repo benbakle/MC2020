@@ -8,6 +8,15 @@ const useTransactions = () => {
     return _context;
 }
 
+const sumOfProperty = (arr, prop) => {
+    let _sum = 0;
+
+    for (let i = 0; i < arr?.length; i++)
+        _sum = _sum + arr[i][prop];
+
+    return _sum;
+}
+
 const TransactionsContextProvider = props => {
     const [transactions, setTransactions] = useState();
 
@@ -21,12 +30,15 @@ const TransactionsContextProvider = props => {
         await _fetchTransactions();
     }
 
+    const budgetTotalById = id => sumOfProperty(transactions?.filter(t => t.budget?.id === id), "amount");
+
+
     useEffect(() => {
         _fetchTransactions();
     }, [])
 
     return (
-        <TransactionsContext.Provider value={{ transactions, addTransaction }}>
+        <TransactionsContext.Provider value={{ transactions, addTransaction, budgetTotalById }}>
             {props.children}
         </TransactionsContext.Provider>
     )

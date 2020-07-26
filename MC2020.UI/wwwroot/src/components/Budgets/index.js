@@ -4,12 +4,13 @@ import { useBudget } from 'services/budget';
 import BudgetSelector from './BudgetSelector';
 
 const Budgets = props => {
-    const { budget } = useBudget();
+    const { budgets, income } = useBudget();
 
     return (
         <div className="budget-list">
+            <span>Total Income: ${income}</span>
             {
-                budget?.map((item, key) =>
+                budgets?.map((item, key) =>
                     <div className="budget-item table-row space-betweeen" key={key}>
                         <div>{item.title}</div>
                         <div>{formatPercent(item.percentage)}</div>

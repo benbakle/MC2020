@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Input = props => {
     const { name, className, value, onChange, ariaLabel, disabled, placeholder } = props;

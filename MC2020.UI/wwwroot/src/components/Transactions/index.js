@@ -3,7 +3,6 @@ import { formatDollar, formatPercent } from 'libraries/numbers';
 import TransactionForm from './TransactionForm';
 import { Date } from 'controls/Fields';
 import { useTransactions } from 'services/transaction';
-import { useBudget } from 'services/budget';
 import { BudgetSelector } from 'components/Budgets';
 import './__.scss';
 
@@ -11,6 +10,8 @@ const Transactions = props => {
     const { transactions } = useTransactions();
     const [filteredTransactions, setFilteredTransactions] = useState();
     const [typeId, setTypeId] = useState("all");
+    const [total, setTotal] = useState("all");
+
 
     useEffect(() => {
         const _filterTransactions = () => {
@@ -23,7 +24,18 @@ const Transactions = props => {
             return transactions?.filter(t => t.budget?.id === typeId)
         }
 
+        const setFilteredTotal = (t) => {
+            let _sum = 0;
+
+            for (let i = 0; i < t?.length; i++)
+                _sum = _sum + t[i].amount;
+
+            console.log(_sum)
+            setTotal(_sum);
+        }
+
         setFilteredTransactions(_filterTransactions())
+        setFilteredTotal(_filterTransactions());
 
     }, [typeId, transactions])
 
@@ -37,6 +49,7 @@ const Transactions = props => {
         <div className="transactions">
             <TransactionForm />
             <BudgetSelector onChange={handleSelectBudget} name="budget" value={typeId} />
+            <h1>Total: {total}</h1>
             {
                 filteredTransactions?.map((item, key) =>
                     <div className="transaction table-row space-between" key={key}>
@@ -56,7 +69,7 @@ const Transactions = props => {
                             }
                         </div>
 
-                        <div>{formatDollar(item.amount)}</div>
+                        <div>{`${formatDollar(item.amount)}`}</div>
                     </div>
                 )}
         </div>
