@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { formatDollar, formatPercent } from 'libraries/numbers';
 import { Date } from 'controls/Fields';
 import { useTransactions } from 'services/transaction';
 import { BudgetSelector } from 'components/Budgets';
 import './__.scss';
+import { Currency, Percent } from 'controls';
 
 const Transactions = props => {
     const { transactions } = useTransactions();
@@ -47,7 +47,7 @@ const Transactions = props => {
     return (
         <div className="transactions card">
             <h1>Transactions</h1>
-            <h2>Balance: {total}</h2>
+            <h2>Balance: <Currency value={total} /></h2>
 
             <BudgetSelector onChange={handleSelectBudget} name="budget" value={typeId} />
 
@@ -66,12 +66,13 @@ const Transactions = props => {
                         <div>
                             {
                                 item.budget
-                                    ? `${item.budget.title} (${formatPercent(item.budget.percentage)})`
+                                    ? <>{item.budget.title} (<Percent value={item.budget.percentage} />)</>
                                     : "Income"
                             }
                         </div>
-
-                        <div>{`${formatDollar(item.amount)}`}</div>
+                        <div>
+                            <Currency value={item.amount} />
+                        </div>
                     </div>
                 )}
         </div>

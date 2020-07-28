@@ -7,6 +7,8 @@ import ScreenSlide from './ScreenSlide';
 import Fetch from './Fetch';
 import Address from './Address';
 import FieldButton from './FieldButton';
+import Currency from './Currency';
+import Percent from './Percent';
 
 export {
     Button,
@@ -18,4 +20,7 @@ export {
     Fetch,
     Address,
     FieldButton,
+    Currency,
+    Percent,
+    
 }

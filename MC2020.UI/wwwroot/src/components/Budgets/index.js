@@ -1,15 +1,15 @@
 import React from 'react';
-import { formatPercent } from 'libraries/numbers';
 import { useBudget } from 'services/budget';
 import BudgetSelector from './BudgetSelector';
 import { useTransactions } from 'services/transaction';
+import { Currency, Percent } from 'controls';
 
 const Budgets = props => {
     const { budgets, income } = useBudget();
     const { budgetTotalById } = useTransactions();
 
     const percentOfBudget = id => {
-        return Math.abs(budgetTotalById(id) / income).toFixed(2);
+        return Math.abs(budgetTotalById(id) / income)
     }
 
     const onBudgetPercent = (id, percent) => {
@@ -23,10 +23,11 @@ const Budgets = props => {
                 budgets?.map((item, key) =>
                     <div className="budget-item table-row space-betweeen" key={key}>
                         <div>{item.title}</div>
-                        <div>{formatPercent(item.percentage)}</div>
-                        <div>{budgetTotalById(item.id)}</div>
-                        <div>{formatPercent(percentOfBudget(item.id))}</div>
-                        <div>{formatPercent(onBudgetPercent(item.id, item.percentage))}</div>
+                        <Percent value={item.percentage} decimals={0} />
+                        <Currency value={budgetTotalById(item.id)} />
+                        <Currency value={income * item.percentage}/>
+                        <Percent value = {percentOfBudget(item.id)} />
+                        <Percent value={onBudgetPercent(item.id, item.percentage)} decimals={2} />
                     </div>
                 )}
         </div>

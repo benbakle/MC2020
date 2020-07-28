@@ -1,0 +1,8 @@
+.table-row .currency,
+.currency {
+    position: relative;
+    display: inline-block;
+    padding-left: 2.1rem;
+    &.negative {
+    }
+}
