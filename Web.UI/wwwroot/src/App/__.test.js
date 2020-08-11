@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, screen, bypassComponent } from './setupTests';
-import App from './App';
+import { render, screen, bypassComponent } from '../setupTests';
+import App from '.';
 
 
 describe('The MEA app', () => {

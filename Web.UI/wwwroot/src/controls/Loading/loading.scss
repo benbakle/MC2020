@@ -1,12 +1,14 @@
-﻿@import "../../../scss-variables/colors.scss";
+﻿@use "scss-variables/colors"as *;
 
 @keyframes loading {
     0% {
         background-color: lighten(#414f52, 50);
     }
+
     50% {
         background-color: #414f52;
     }
+
     100% {
         background-color: lighten(#414f52, 50);
     }
@@ -42,6 +44,7 @@
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }

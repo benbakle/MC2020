@@ -1,4 +1,4 @@
-@import "../../../scss-variables/colors.scss";
+@use "scss-variables/colors"as *;
 
 .button {
     border: none;
@@ -6,7 +6,7 @@
     font-size: 1.6rem;
     transition-duration: 0.3s;
     cursor: pointer;
-    
+
     &.primary {
         background-color: $blue;
         color: $white;
