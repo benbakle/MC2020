@@ -1,0 +1,30 @@
+@use 'scss-variables/colors' as *;
+
+.plus-icon {
+    position: relative;
+    display: block;
+    width: 1em;
+    height: 1em;
+    transition-duration: inherit;
+
+    &:after,
+    &:before {
+        display: block;
+        position: absolute;
+        content: "";
+        top: calc(50% - 0.08em);
+        left: 50%;
+        width: 100%;
+        height: 0.14285em;
+        background-color: $dark-blue;
+        transition-duration: inherit;
+    }
+
+    &:before {
+        transform: translate(-50%) rotate(90deg);
+    }
+
+    &:after {
+        transform: translate(-50%);
+    }
+}

@@ -1,0 +1,31 @@
+@use 'scss-variables/colors' as *;
+@use 'scss-variables/effects' as *;
+
+.button {
+    border: none;
+    background-color: transparent;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    text-align: left;
+
+    &.primary {
+        background-color: $blue;
+        color: $white;
+        border-radius: 0.3rem;
+        font-weight: 700;
+        padding: 1.5rem 2.7rem;
+
+        @include link-states {
+            border: none;
+            box-shadow: none;
+            background-color: $blue;
+            box-shadow: 0 0.3rem 0.6rem $blue;
+        }
+    }
+
+    &:focus {
+        outline-color: $blue;
+        outline-style: solid;
+        outline-width: 1px;
+    }
+}

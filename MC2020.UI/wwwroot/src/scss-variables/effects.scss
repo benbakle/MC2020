@@ -1,0 +1,41 @@
+$box-shadow: 1rem 0 1.6rem #00000029;
+$standard-transition: 0.3s;
+$longer-transition: 0.5s;
+
+@mixin cover-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 500;
+}
+
+@mixin faded-out {
+    visibility: hidden;
+    z-index: -500;
+    opacity: 0;
+}
+
+@mixin faded-in {
+    visibility: visible;
+    z-index: 500;
+    opacity: 1;
+    z-index: 500;
+    opacity: 1;
+}
+
+@mixin link-states {
+    &:hover,
+    &:active {
+        @content;
+    }
+}
+
+@mixin ellipse {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

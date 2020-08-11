@@ -1,0 +1,87 @@
+@use 'scss-variables/colors' as *;
+@use 'scss-variables/effects' as *;
+
+$dark-mint: darken($mint-green, 10);
+$dark-mint: darken($mint-green, 30);
+$darker-mint: darken($mint-green, 65);
+
+.notify {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+
+    .note {
+        width: 100%;
+        background-color: $mint-green;
+        border: 0 solid transparent;
+        color: $darker-mint;
+        font-weight: 900;
+        padding: 10px;
+        border: 0.1rem solid $dark-mint;
+        cursor: pointer;
+        transform: translate(100%);
+        transition-duration: $standard-transition;
+        
+        &.animate {
+            transform: translate(0, 0);
+            
+            &.animating {
+                transform: translate(-100%, 0);
+                
+                &.animated {
+                    border-width: 0;
+                    padding: 0;
+                    height: 0;
+                    line-height: 0;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: #b9cbc9;
+            & > .message {
+                .countdown {
+                    opacity: 0;
+                }
+
+                .close-icon {
+                    opacity: 0.9;
+                    transform: scale(1.1) translateY(-50%);
+                }
+            }
+        }
+
+        & > .message {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+
+            .countdown,
+            .close-icon {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 1.5rem;
+                font-size: 1.2rem;
+                width: 2.8rem;
+                height: 2.8rem;
+                border: 0.2rem solid $dark-mint;
+                color: $dark-mint;
+                border-radius: 2.8rem;
+                transition-duration: $standard-transition;
+            }
+            .countdown {
+                opacity: 0.75;
+            }
+
+            .close-icon {
+                opacity: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+@mixin large-phone() {
+    @media only screen and (min-width: 576px) {
+        @content;
+    }
+}
+
+@mixin tablet() {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin large-tablet() {
+    @media only screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin laptop() {
+    @media only screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop() {
+    @media only screen and (min-width: 1440px) {
+        @content;
+    }
+}
+
+//For custom screen sizes
+@mixin at($size) {
+    @media only screen and (min-width: $size + "px") {
+        @content;
+    }
+}

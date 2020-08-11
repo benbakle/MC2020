@@ -1,0 +1,104 @@
+﻿@import "scss-variables/colors.scss";
+@import "scss-variables/font.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  font-family: $font-family;
+  color: $cream;
+  font-size: 1.4rem;
+  background-color: $darkest-blue; //$main-gradient;
+}
+
+.money-clip-app {
+  padding: 1.5rem;
+}
+
+svg {
+  height: 1em;
+  fill: currentColor;
+}
+
+input,
+select,
+option {
+  background-color: $blue;
+  color: white;
+}
+
+.flex {
+  display: flex;
+
+  &.space-betweeen {
+    justify-content: space-between;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+}
+
+.table-row {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 0;
+  background-color: $dark-blue;
+  
+  & > div,
+  & > span {
+    width: 100%;
+    padding: 0 0.7rem;
+    
+    &:first-child {
+      text-align: left;
+    }
+    
+    &:last-child {
+      text-align: right;
+    }
+  }
+  
+  &:nth-child(2n) {
+    background-color: $blue;
+  }
+}
+
+.max-width-tablet {
+  max-width: 76.8rem;
+}
+
+.card {
+  background-color: $dark-blue;
+  padding: 1.5rem;
+  margin:0 auto;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width:99.2rem;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.9);
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 4rem;
+}
+
+.negative{
+  color:$error;
+}

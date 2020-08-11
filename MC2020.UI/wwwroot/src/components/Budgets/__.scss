@@ -1,0 +1,12 @@
+.budgets{
+    padding:1rem;
+
+    .budget-item {
+        padding:.7rem 0;
+
+        &>span:nth-child(1) {
+            width: 50%;
+        }
+    }
+}
+    

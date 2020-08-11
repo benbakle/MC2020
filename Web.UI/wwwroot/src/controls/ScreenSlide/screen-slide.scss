@@ -1,0 +1,39 @@
+@use 'scss-variables/colors' as *;
+@use 'scss-variables/effects' as *;
+
+.screen-slide {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    & > .screen {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        transition-duration: $longer-transition;
+        transform: translateX(110%);
+        opacity: 0;
+        visibility: hidden;
+        z-index: -100;
+
+        &.is-active {
+            transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
+            z-index: initial;
+        }
+
+        &.has-been-viewed:not(.is-active) {
+            transform: translateX(-120%);
+        }
+
+        & > div {
+            overflow-x: hidden;
+            height: 100vh;
+        }
+    }
+}
