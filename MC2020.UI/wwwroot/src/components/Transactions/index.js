@@ -40,14 +40,13 @@ const Transactions = props => {
 
     const handleSelectBudget = e => {
         const _value = e.target.value;
-        console.log(_value)
         setTypeId(e.target.value)
     }
 
     return (
         <div className="transactions card">
             <h1>Transactions</h1>
-            <h2>Balance: <Currency value={total} /></h2>
+            <h2>Total: <Currency value={total} /></h2>
 
             <BudgetSelector onChange={handleSelectBudget} name="budget" value={typeId} />
 

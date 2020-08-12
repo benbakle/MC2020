@@ -1,0 +1,48 @@
+@use "scss-variables/colors.scss" as *;
+
+.chart {
+    height: 5rem;
+    display: flex;
+    align-items: flex-end;
+
+    &.loading {
+        .bar {
+            height: 1% !important;
+            background-color: transparent !important;
+        }
+    }
+
+    &:nth-child(2) {
+        .bar:first-child {
+            height: 60%;
+            background-color: $cream;
+        }
+    }
+
+    .bar {
+        display:flex;
+        width: 50px;
+        transition-duration: 0.5s;
+        margin-right: 30px;
+        align-items: center;
+        justify-content: center;
+
+        .tool-top {
+            color: $dark-blue;
+        }
+    }
+
+    .bar:first-child {
+        height: 80%;
+        background-color: $cream;
+    }
+
+    .bar:nth-child(2) {
+        height: 20%;
+        background-color: limegreen;
+
+        &.over-budget {
+            background-color: indianred;
+        }
+    }
+}

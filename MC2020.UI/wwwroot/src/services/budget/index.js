@@ -21,7 +21,7 @@ const BudgetContextProvider = props => {
 
     const _fetchIncome = async () => {
         const _income = await fetch('api/transaction/income/total');
-        setIncome(_income);
+        setIncome(4450); // monthly budget total
     }
 
     useEffect(() => {

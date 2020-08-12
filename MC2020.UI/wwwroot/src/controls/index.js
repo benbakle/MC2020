@@ -9,6 +9,7 @@ import Address from './Address';
 import FieldButton from './FieldButton';
 import Currency from './Currency';
 import Percent from './Percent';
+import Chart from './Chart';
 
 export {
     Button,
@@ -22,5 +23,5 @@ export {
     FieldButton,
     Currency,
     Percent,
-    
+    Chart,  
 }

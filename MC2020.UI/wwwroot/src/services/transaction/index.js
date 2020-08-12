@@ -32,7 +32,6 @@ const TransactionsContextProvider = props => {
 
     const budgetTotalById = id => sumOfProperty(transactions?.filter(t => t.budget?.id === id), "amount");
 
-
     useEffect(() => {
         _fetchTransactions();
     }, [])
