@@ -1,5 +1,4 @@
-@use 'scss-variables/colors' as *;
-@use 'scss-variables/effects' as *;
+@use "scss-variables/colors"as *;
 
 .button {
     border: none;
@@ -7,7 +6,6 @@
     font-size: 1.6rem;
     transition-duration: 0.3s;
     cursor: pointer;
-    text-align: left;
 
     &.primary {
         background-color: $blue;
@@ -16,17 +14,11 @@
         font-weight: 700;
         padding: 1.5rem 2.7rem;
 
-        @include link-states {
-            border: none;
-            box-shadow: none;
-            background-color: $light-blue;
-            box-shadow: 0 0.3rem 0.6rem $light-blue;
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $dark-blue;
+            box-shadow: 0px 3px 6px $dark-blue;
         }
-    }
-
-    &:focus {
-        outline-color: $light-blue;
-        outline-style: solid;
-        outline-width: 1px;
     }
 }

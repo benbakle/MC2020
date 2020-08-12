@@ -1,0 +1,34 @@
+﻿@use "scss-variables/colors"as *;
+@use "scss-variables/font"as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-family;
+  color: $white;
+  font-size: 2rem;
+  background-color: #2C3539;
+}
+
+svg {
+  height: 1em;
+  fill: currentColor;
+}
+
+.chart {
+  max-width: 76.8rem;
+  margin: 5rem auto;
+}
