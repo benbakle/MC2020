@@ -1,6 +1,7 @@
 ﻿using MC2020.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,11 +10,22 @@ namespace MC2020.EntityFramework
     public class ApplicationDataContext : DbContext, IDataContext
     {
         public DbSet<Budget> Budgets { get; set; }
-        public DbSet<Transaction> Transactions{ get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             OptimizeProperties(builder);
+            builder.Entity<Budget>().HasData(
+                new Budget { Id = Guid.NewGuid(), Percentage =(decimal)0.25, Title = "Housing" },
+                new Budget { Id = Guid.NewGuid(), Percentage = (decimal)0.10, Title = "Insurance" },
+                new Budget { Id = Guid.NewGuid(), Percentage = (decimal)0.10, Title = "Transportation" },
+                new Budget { Id = Guid.NewGuid(), Percentage = (decimal)0.10, Title = "Utilities" },
+                new Budget { Id = Guid.NewGuid(), Percentage = (decimal)0.10, Title = "Entertainment" },
+                new Budget { Id = Guid.NewGuid(), Percentage = (decimal)0.05, Title = "Clothing" },
+                new Budget { Id = Guid.NewGuid(), Percentage = (decimal)0.10, Title = "Food" },
+                new Budget { Id = Guid.NewGuid(), Percentage = (decimal)0.10, Title = "Saving" },
+                new Budget { Id = Guid.NewGuid(), Percentage = (decimal)0.10, Title = "Miscellanieous" }
+                );
         }
 
         public ApplicationDataContext(DbContextOptions<ApplicationDataContext> options) : base(options)
