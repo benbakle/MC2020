@@ -4,10 +4,6 @@ using MC2020.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
-using Microsoft.AspNetCore.Authentication;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Internal;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace MC2020.API
 {
@@ -89,12 +85,5 @@ namespace MC2020.API
             _context.Save().GetAwaiter().GetResult();
             return NoContent();
         }
-    }
-
-    public class BudgetTotalsMessage
-    {
-        public Guid BudgetId { get; set; }
-        public decimal? Total { get; set; }
-
     }
 }

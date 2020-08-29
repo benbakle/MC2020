@@ -1,12 +1,15 @@
-.budgets{
-    padding:1rem;
+
+.budgets {
+    padding: 1rem;
 
     .budget-item {
-        padding:.7rem 0;
+        padding: 0.7rem 0;
 
-        &>span:nth-child(1) {
-            width: 50%;
+        & > span:nth-child(3) {
+            &:not(.negative) {
+                color: limegreen;
+            }
+            // width: 50%;
         }
     }
 }
-    
